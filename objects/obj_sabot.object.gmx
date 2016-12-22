@@ -45,6 +45,24 @@ for (i = 0; i &lt; 21; i += 1) {
     ds_grid_add(finallist,i,1,0)
     ds_grid_add(finallist,i,2,0)
 }
+
+file = file_text_open_read(working_directory + "\counters.txt")
+hero_counters = ds_grid_create(23,23)
+for (i = 0; i &lt; 23; i += 1) { //vertical
+    line = file_text_read_string(file)
+    file_text_readln(file)
+    for (j = 0; j &lt; 100; j += 1) { //horizontal
+        write = 0
+        if (string_char_at(line,j) = "") {break}
+        else if (string_char_at(line,j) = "-") {
+            j += 1
+            write = -string_char_at(line,j)
+        }
+        else {write = string_char_at(line,j)}
+        ds_grid_set(hero_counters,j,i,write) //write to the grid
+    }
+}
+file_text_close(file)
 </string>
           </argument>
         </arguments>
@@ -66,8 +84,8 @@ for (i = 0; i &lt; 21; i += 1) {
           <argument>
             <kind>1</kind>
             <string>///Counters
-hero_counters = ds_grid_create(23,4)
-ds_grid_add(hero_counters,0,0,0)
+
+/*ds_grid_add(hero_counters,0,0,0) This is stupid
 ds_grid_add(hero_counters,0,1,1)
 ds_grid_add(hero_counters,0,2,0)
 ds_grid_add(hero_counters,0,3,0)
@@ -89,7 +107,7 @@ ds_grid_add(hero_counters,0,18,-1)
 ds_grid_add(hero_counters,0,19,-2)
 ds_grid_add(hero_counters,0,20,1)
 ds_grid_add(hero_counters,0,21,-1)
-/*ds_grid_add(hero_counters,0,0,"Genji")
+ds_grid_add(hero_counters,0,0,"Genji")
 ds_grid_add(hero_counters,0,1,"Bastion")
 ds_grid_add(hero_counters,0,2,"Hanzo")
 ds_grid_add(hero_counters,0,3,"Widowmaker")
@@ -255,6 +273,7 @@ for (i = 0; i &lt; 23; i += 1) {
 draw_set_colour(c_white)
 draw_text(400,50,selecting)
 draw_text(450,50,hover)
+draw_text(500,50,file)
 </string>
           </argument>
         </arguments>
