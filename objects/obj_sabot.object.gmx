@@ -47,10 +47,11 @@ for (i = 0; i &lt; 21; i += 1) {
 }
 
 file = file_text_open_read(working_directory + "\counters.txt")
-counters = ds_grid_create(100,100)
+counters = ds_grid_create(22,22)
 for (i = 0; i &lt; 23; i += 1) { //vertical
     line = file_text_read_string(file)
     file_text_readln(file)
+    k = -1
     for (j = 0; j &lt; string_length(line); j += 1) { //horizontal
         write = 9
         if (string_char_at(line,j) = "") {break} //end of line
@@ -59,7 +60,8 @@ for (i = 0; i &lt; 23; i += 1) { //vertical
             write = -real(string_char_at(line,j))
         }
         else {write = real(string_char_at(line,j))}
-        ds_grid_set(counters,i,j,write) //write to the grid
+        ds_grid_set(counters,i,k,write) //write to the grid
+        k += 1
     }
 }
 file_text_close(file)
