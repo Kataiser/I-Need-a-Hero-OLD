@@ -50,13 +50,29 @@
             <kind>1</kind>
             <string>if hovering and mouse_check_button_pressed(mb_left) {
     //For every hero, determine well they counter the enemy
-    for (i = 0; i &lt; 22; i += 1) {
-        /*temp = ds_list_find_value(obj_sabot.enemyteam,i)
-        if ds_grid_get(obj_sabot.hero_counters,i,1) = scr_numtoname(temp) {ds_grid_add(obj_sabot.finallist,temp,1,1)}
-        if ds_grid_get(obj_sabot.hero_counters,i,2) = scr_numtoname(temp) {ds_grid_add(obj_sabot.finallist,temp,2,1)}
-        if ds_grid_get(obj_sabot.hero_counters,i,2) = scr_numtoname(temp) {ds_grid_add(obj_sabot.finallist,temp,3,1)}*/
-        
+    //To do that:
+    //For every hero, and within that every enemy slot,
+    //put in both heroes to the counter table
+    //take the output number and add it to finallist
+    //then sort finallist
+    //oh and then do synergies somehow
+    for (i = 0; i &lt; 22; i += 1) { //reset finallist
+        ds_grid_set(obj_sabot.finallist,0,i,i) //hero (for sorting)
+        ds_grid_set(obj_sabot.finallist,1,i,0) //main score
+        ds_grid_set(obj_sabot.finallist,2,i,0) //counters
+        ds_grid_set(obj_sabot.finallist,3,i,0) //synergies
     }
+    for (i = 0; i &lt; 22; i += 1) {
+        for (j = 0; j &lt; 6; j += 1) {
+            temp = ds_grid_get(obj_sabot.counters,ds_list_find_value(obj_sabot.enemyteam,j),i)
+            if is_undefined(temp) {temp = 0} //if the enemy team has a missing hero, or a zenyatta
+            ds_grid_add(obj_sabot.finallist,1,i,temp) //main score
+            ds_grid_add(obj_sabot.finallist,2,i,temp) //counters
+        }
+    }
+    if !mouse_check_button(mb_right) {ds_grid_sort(obj_sabot.finallist,1,false)}
+    //now output the top three and the lowest one to the face_outputs
+    with obj_face_output {hero = ds_grid_get(obj_sabot.finallist,0,num)}
 }
 </string>
           </argument>

@@ -64,10 +64,10 @@
     <instance objName="obj_face_input" x="336" y="646" name="inst_A99F647B" locked="0" code="num = 3&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_face_input" x="526" y="646" name="inst_FA968D91" locked="0" code="num = 4&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_face_input" x="715" y="646" name="inst_F89DA961" locked="0" code="num = 5&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_face_output" x="1206" y="202" name="inst_DD89A0E4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_face_output" x="1206" y="350" name="inst_BD6C8757" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_face_output" x="1206" y="498" name="inst_07F15C0B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_face_output" x="1206" y="646" name="inst_40A35BFC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_face_output" x="1206" y="202" name="inst_DD89A0E4" locked="0" code="num = 0&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_face_output" x="1206" y="350" name="inst_BD6C8757" locked="0" code="num = 1&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_face_output" x="1206" y="498" name="inst_07F15C0B" locked="0" code="num = 2&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_face_output" x="1206" y="646" name="inst_40A35BFC" locked="0" code="num = 21&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_button" x="839" y="0" name="inst_49DC9F0D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>

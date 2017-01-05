@@ -72,6 +72,12 @@ else {team = 2} //enemy team
         focus = 1
     }
 }
+else if hovering and mouse_check_button_pressed(mb_right) {
+    obj_sabot.selecting = false
+    obj_sabot.return_to = noone
+    focus = 0
+    hero = -1
+}
 
 image_index = hero
 if team = 1 {ds_list_replace(obj_sabot.friendlyteam,num,hero)}
